@@ -40,7 +40,6 @@ from bacpypes.apdu import (
     ReadRangeRequest,
     RejectPDU,
     RejectReason,
-    EngineeringUnits,
 )
 from bacpypes.basetypes import DateTime, PropertyIdentifier
 from bacpypes.constructeddata import Array
@@ -206,7 +205,7 @@ class ReadProperty:
                             "The units property is not implemented in the device. We will consider noUnits"
                             "Using a default value for internal needs. Please note that units is a required property for BACnet objects like analog values. The device you are reading from may be non-compliant."
                         )
-                        return EngineeringUnits("noUnits")
+                        return "Property Not Implemented"
                     else:
                         raise UnknownPropertyError("Unknown property {}".format(args))
                 elif reason == "unknownObject":
