@@ -105,7 +105,8 @@ class TrendLog(TrendLogProperties):
                 )
             )
         except Exception as error:
-            raise Exception("Problem reading trendLog informations: {}".format(error))
+            #raise Exception("Problem reading trendLog informations: {}".format(error))
+            pass
 
     def _total_record_count(self):
         self.properties.total_record_count = (
