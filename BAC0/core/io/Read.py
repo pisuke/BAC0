@@ -365,7 +365,10 @@ class ReadProperty:
                             elif propertyValue.is_application_class_null():
                                 value = None
                             else:
-                                value = propertyValue.cast_out(datatype)
+                                try:
+                                    value = propertyValue.cast_out(datatype)
+                                except:
+                                    value = None
 
                             self._log.debug(
                                 "{!r:<20} {!r:<20} {!r:<30} {!r:<20}".format(
