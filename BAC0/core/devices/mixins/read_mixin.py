@@ -298,7 +298,11 @@ class RPMObjectsProcessing:
             i += 1
 
             pointName = point_infos[_find_propid_index("objectName")]
-            presentValue = point_infos[_find_propid_index("presentValue")]
+            presentValue = None
+            try:
+                presentValue = point_infos[_find_propid_index("presentValue")]
+            except:
+                pass
             if presentValue is not None:
                 if obj_type == "analog" or obj_type == "loop":
                     presentValue = float(presentValue)
