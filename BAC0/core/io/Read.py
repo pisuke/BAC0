@@ -207,7 +207,8 @@ class ReadProperty:
                         )
                         return "noUnit"
                     else:
-                        raise UnknownPropertyError("Unknown property {}".format(args))
+                        # raise UnknownPropertyError("Unknown property {}".format(args))
+                        return "unknownProperty"
                 elif reason == "unknownObject":
                     self._log.warning("Unknown object {}".format(args))
                     raise UnknownObjectError("Unknown object {}".format(args))
