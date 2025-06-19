@@ -394,7 +394,10 @@ class RPObjectsProcessing:
                 "{} {} presentValue ".format(point_type, point_address)
             )
             if (obj_type == "analog" or obj_type == "loop") and presentValue:
-                presentValue = float(presentValue)
+                try:
+                    presentValue = float(presentValue)
+                except:
+                    presentValue = 0.0
 
             _newpoints.append(
                 obj_cls(
