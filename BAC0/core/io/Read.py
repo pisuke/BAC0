@@ -211,7 +211,7 @@ class ReadProperty:
                         return "unknownProperty"
                 elif reason == "unknownObject":
                     self._log.warning("Unknown object {}".format(args))
-                    raise UnknownObjectError("Unknown object {}".format(args))
+                    # raise UnknownObjectError("Unknown object {}".format(args))
                 elif reason == "bufferOverflow":
                     self._log.warning(
                         "Buffer capacity exceeded in device {}".format(args)
@@ -220,9 +220,10 @@ class ReadProperty:
                 else:
                     # Other error... consider NoResponseFromController (65)
                     # even if the real reason is another one
-                    raise NoResponseFromController(
-                        "APDU Abort Reason : {}".format(reason)
-                    )
+                    self._log.warning("APDU Abort Reason : {}".format(reason))
+                    # raise NoResponseFromController(
+                    #     "APDU Abort Reason : {}".format(reason)
+                    # )
         return None
 
     def _split_the_read_request(self, args, arr_index):
